@@ -11,12 +11,19 @@ Vue.createApp({
     box() {
       return {
         transform: `
-          perspective($this.perspective)px
-          rotateX($this.rotateX)deg
-          rotateY($this.rotateY)deg
-          rotateZ($this.rotateZ)deg
+          perspective(${this.perspective}px)
+          rotateX(${this.rotateX}deg)
+          rotateY(${this.rotateY}deg)
+          rotateZ(${this.rotateZ}deg)
         `,
       };
+    },
+  },
+  methods: {
+    reset() {
+      [this.perspective, this.rotateX, this.rotateY, this.rotateZ] = [
+        100, 0, 0, 0,
+      ];
     },
   },
 }).mount('#app');
