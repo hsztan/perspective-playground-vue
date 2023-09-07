@@ -25,5 +25,11 @@ Vue.createApp({
         100, 0, 0, 0,
       ];
     },
+    async copy() {
+      let text = `transform:${this.box.transform};`;
+      await navigator.clipboard.writeText(text);
+
+      alert('CSS copied to Clipboard!');
+    },
   },
 }).mount('#app');
